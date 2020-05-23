@@ -3,17 +3,64 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 	<style type="text/css">
+  /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: black;
+  color: white;
+  transform: rotateY(180deg);
+}
 	.row {
   display: flex;
   flex-wrap: wrap;
-  padding: 0 4px;
+  padding: 04px;
 }
 
 /* Create four equal columns that sits next to each other */
 .column {
   flex: 25%;
   max-width: 25%;
-  padding: 0 4px;
+  padding: 04px;
+
+
 }
 
 .column img {
@@ -27,6 +74,8 @@
   .column {
     flex: 50%;
     max-width: 50%;
+  padding: 04px;
+
   }
 }
 
@@ -85,6 +134,7 @@ video {
 		function openCity(evt, cityName) {
   // Declare all variables
   var i, tabcontent, tablinks;
+                document.body.style.background = 'white'; 
 
   // Get all elements with class="tabcontent" and hide them
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -114,47 +164,72 @@ background-position:center">
 	<!-- <   src="balloon. " alt="balloon"> -->
 
   <button class="tablinks" onclick="openCity(event, 'Get Wishes')">Get Wishes</button>
-  <button class="tablinks" onclick="openCity(event, 'Messages For you')">Messages For you </button>
+  <button class="tablinks" onclick="openCity(event, 'flip-card')">Click For More </button>
 </div>
 
 <!-- Tab content -->
 <div id="Get Wishes" class="tabcontent">
   <div class="row">
   <div class="column">
-<video controls poster="heetcartoon.jpeg">
-  <source src="heet.mp4" type="video/mp4">
+    <video controls poster="zeel.jpg">
+  <source src="zeelvid.mp4" type="video/mp4">
+</video>
+<video controls poster="manju.jpg">
+  <source src="manjuvid.mp4" type="video/mp4">
 </video>
     <video controls poster="honey.jpg">
   <source src="honeyvid.mp4" type="video/mp4">
 </video>
    </div>
    <div class="column">
-    <video controls poster="zeel.jpg">
-  <source src="zeelvid.mp4" type="video/mp4">
-</video>
+    
 <video controls poster="kaksh.jpeg">
   <source src="kakshvid.mp4" type="video/mp4">
+</video>
+<video controls poster="heetcartoon.jpeg">
+  <source src="heet.mp4" type="video/mp4">
 </video>
 <video controls poster="niyati.jpeg">
   <source src="niyativid.mp4" type="video/mp4">
 </video>
-   </div>
-   <div class="column">
-   <video controls poster="manju.jpg">
-  <source src="manjuvid.mp4" type="video/mp4">
-</video>
 <video controls poster="rinkle.jpg">
   <source src="rinklevid.mp4" type="video/mp4">
 </video>
+   </div>
+   <div class="column">
+
 <video controls poster="priya.jpg">
   <source src="priyavid.mp4" type="video/mp4">
 </video>
+   
+<video controls poster="minal.jpeg">
+  <source src="minalvid.mp4" type="video/mp4">
+</video>
+<video controls poster="mansi.jpeg">
+  <source src="mansivid.mp4" type="video/mp4">
+</video>
+
+<video controls poster="vidhi.jpeg" onclick="alert('hahahah!!:)')">
+  
+</video>
+
    </div>
 </div>
-
-<div id="Some Fun" class="tabcontent">
+</div>
+<div id="flip-card" class="tabcontent">
+  <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="clickhere.jpeg" alt="Avatar" style="width:300px;height:300px;">
+    </div>
+    <div class="flip-card-back">
+      
+      <p>Bass ab 18th birthday pe itnaich milega abhi silver jubliee pe aana.</p>
+      
+    </div>
   </div>
-
+</div>
+  </div>
 
 </body>
 </html>
